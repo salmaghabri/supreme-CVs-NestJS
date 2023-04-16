@@ -18,11 +18,13 @@ export class Cv {
   job: string;
   @Column()
   path: string;
-  @ManyToOne(()=>User, (user:User) =>user.cvs,{
+  @ManyToOne(()=>User, (user:User) =>user.cvs,{eager:true,
     onDelete: "CASCADE",
   })
   user:User;
-  @ManyToMany(()=>Skill)
+  @ManyToMany(()=>Skill,(skill)=>skill.cvs,{eager:true,
+    cascade: ['insert', 'update']
+  })
   @JoinTable()
   skills:Skill[];
 }

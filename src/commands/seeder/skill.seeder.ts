@@ -1,8 +1,11 @@
 import { NestFactory } from "@nestjs/core";
-import { AppModule } from "src/app.module";
+import { AppModule } from "../../app.module";
 import { randSkill,  seed } from '@ngneat/falso';
-import { SkillService } from "src/skill/skill.service";
-import { CreateSkillDto } from "src/skill/dto/create-skill.dto";
+// import { SkillService } from "src/skill/skill.service";
+import { SkillService } from "../../skill/skill.service";
+import { CreateSkillDto } from "../../skill/dto/create-skill.dto";
+
+// import { CreateSkillDto } from "src/skill/dto/create-skill.dto";
 async function bootstrap() {
     const app = await NestFactory.createApplicationContext(AppModule);
     const skillService=app.get(SkillService)
@@ -14,7 +17,6 @@ async function bootstrap() {
         skillService.create(skill);
         
     }
-    await app.close();
 
     }
     bootstrap();

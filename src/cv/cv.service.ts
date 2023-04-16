@@ -4,12 +4,23 @@ import { UpdateCvDto } from './dto/update-cv.dto';
 import { Cv } from './entities/cv.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+// import { Skill } from 'src/skill/entities/skill.entity';
 
 @Injectable()
 export class CvService {
-  constructor(@InjectRepository(Cv)
-  private repository: Repository<Cv>){}
+  constructor(
+    @InjectRepository(Cv)
+  private repository: Repository<Cv>
+  // @InjectRepository(Skill)
+  // private skillRepository: Repository<Skill>
+  // @InjectRepository(User)
+  // private userrepository: Repository<User>
+  )
+  {}
   async create(createCvDto: CreateCvDto) {
+    // return await this.repository.save(createCvDto);
+ 
+    
     const newCv=this.repository.create(createCvDto);
     // newCv.skills=[];
     // newCv.user=null; 

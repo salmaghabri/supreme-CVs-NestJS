@@ -7,7 +7,7 @@ async function bootstrap() {
     const app = await NestFactory.createApplicationContext(AppModule);
     const service=app.get(UserService)
     seed('some-constant-seed');
-    for(let i=0; i<0;i++){
+    for(let i=0; i<2;i++){
         const user=new CreateUserDto(); 
         user.username=randUserName();
         user.password=randPassword();
@@ -16,7 +16,7 @@ async function bootstrap() {
     }
 
 
-    await app.close();
+    // await app.close();
 
     }
     bootstrap();
