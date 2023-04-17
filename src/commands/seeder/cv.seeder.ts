@@ -28,7 +28,6 @@ async function bootstrap() {
         cv.cin=randIban({countryCode:'DE'});
         cvService.create(cv);
         cvs.push(cv);
-        console.log(cv,"ggggggggggggggggg")
 
     }
 const users= await userService.findAll(); 
